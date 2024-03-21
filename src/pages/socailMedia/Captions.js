@@ -296,7 +296,7 @@ function Captions({title,desc}) {
                                 <img
                                 key={index}
                                 src={image.urls.small}
-                                alt={`Image ${index + 1}`}
+                                alt={`${index}`}
                                 className={selectedImages.includes(image) ? Styles.selectedImage : ''}
                                 onClick={() => handleImageClick(image)}
                                 />
