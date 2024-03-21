@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import Styles from './socio.module.css';
 import { Audio } from 'react-loader-spinner'
 import axios from 'axios';
@@ -18,6 +18,7 @@ function Captions({title,desc}) {
     const [image,setImage] = useState([]);
     const [selectedImages, setSelectedImages] = useState([]);
     const [savePost,setSavePost] = useState(false);
+    const captionRef = useRef(null);
 
     const [values,Setvalues] = useState({});
 
@@ -186,7 +187,8 @@ function Captions({title,desc}) {
     }
 
     function displaySentence(res) {
-        const capElement = document.querySelector(`.${Styles.cap}`);
+        // const capElement = document.querySelector(`.${Styles.cap}`);
+        const capElement = captionRef.current;
         if (!capElement) {
             console.error("Caption element not found");
             return;
@@ -284,7 +286,8 @@ function Captions({title,desc}) {
                     loader ? <Audio height="80" width="80" radius="9" color="black" ariaLabel="three-dots-loading" wrapperStyle wrapperClass visible={loader}/>
                     : null
                 }
-                <div className={Styles.cap}></div>
+                {/* <div className={Styles.cap}></div> */}
+                <div ref={captionRef} className={Styles.cap}></div>
             </div> 
             {
                 hash && (
