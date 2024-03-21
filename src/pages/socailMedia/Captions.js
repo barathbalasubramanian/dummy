@@ -9,8 +9,6 @@ import { useNavigate } from 'react-router-dom';
 
 function Captions({title,desc}) {
 
-
-
     const navi = useNavigate();
     console.log(desc,"....")
     const [hash,sethash] = useState(false);
@@ -112,6 +110,8 @@ function Captions({title,desc}) {
     }
     
     const _fetchhash = async() => {
+
+        setLoaderhash_(true)
         const {
             GoogleGenerativeAI,
             HarmCategory,
@@ -182,11 +182,11 @@ function Captions({title,desc}) {
     }
 
     const genhash = () => {
-        setLoaderhash_(true)
         _fetchhash()
     }
 
     function displaySentence(res) {
+        document.querySelector(`.${Styles.cap}`).innerHTML = ""
         let index = 0;
         function displayNextCharacter() {
             if (index < res.length) {
@@ -279,7 +279,7 @@ function Captions({title,desc}) {
                     <div className={Styles.sepCon}>
                         <button onClick={genhash}>Generate Hashtags</button>
                         {
-                            loaderhash_ ? <Audio height="80" width="80" radius="9" color="black" ariaLabel="three-dots-loading" wrapperStyle wrapperClass visible={loader}/>
+                            loaderhash_ ? <Audio height="80" width="80" radius="9" color="black" ariaLabel="three-dots-loading" wrapperStyle wrapperClass visible={loaderhash_}/>
                             : null
                         }
                         <div className={Styles.hash}></div>

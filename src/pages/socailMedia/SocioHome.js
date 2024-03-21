@@ -80,6 +80,7 @@ function SocioHome() {
     };
 
     function displaySentence(res) {
+        document.querySelector(`.${Styles.result}`).innerHTML = "";
         setLoader(false)
         let index = 0;
         function displayNextCharacter() {
