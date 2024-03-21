@@ -1,24 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { Route, Routes } from "react-router-dom";
+import Blog from "./pages/Blog";
+import SocialMedia from "./pages/SocialMedia";
+import Auth from "./pages/Auth";
+import Home from "./pages/Home";
+import Test from "./pages/Test";
+import UserBlogs from "./pages/UserBlogs";
+import SocioHome from "./pages/socailMedia/SocioHome";
+import DashBoard from "./pages/DashBoard";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Auth />} />
+        <Route path="/home" element={<Home/> }/>
+        <Route path="/blog" element={<Blog />} />
+        <Route path="/Sociohome" element={<SocioHome />} />
+        <Route path="/test" element={<Test/>}/>
+        <Route path="/blogs" element={<UserBlogs/>}/>
+        <Route path="/dashboard" element={< DashBoard/>} />
+      </Routes>
+    </>
   );
 }
 

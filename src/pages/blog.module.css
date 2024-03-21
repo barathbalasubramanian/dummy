@@ -1,0 +1,128 @@
+.tit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 30px;
+    font-size: 30px;
+}
+
+.container {
+    padding: 2em 20%;
+    display: flex;
+    flex-direction: column;
+    gap: 3em;
+}
+
+.inpdiv {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    gap: 2em;
+}
+
+.inp {
+    width: 75%;
+}
+
+.inp input {
+    width: 80%;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1.8px solid rgba(0, 0, 0, 50%);
+    text-transform: capitalize;
+}   
+
+p {
+    cursor: pointer;
+}
+
+.promptTit, .ImgTit{
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: 24px;
+}
+
+.selPrompt{
+    margin: 1em 0 0 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.selected-prompt {
+    border-right: 2px solid black;
+}
+
+.selPrompt input {
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: 1.8px solid rgba(0, 0, 0, 50%);
+    text-transform: capitalize;
+    margin-bottom: 1.5em;
+}
+
+.button {
+    font-size: 18px;
+    padding: 4px 8px;
+}
+
+.selectedPrompt {
+    border-left: 2px solid #000;
+    padding: 0 0 0 10px;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2em;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.selectedImage  {
+    border: 2px solid #000;
+    padding: 10px;
+}
+
+.post {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    padding: 2em 3em;
+    font-size: 18px;
+}
+
+.date {
+    padding: 2em 20%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2em;
+}
+
+.dateTit {
+    font-size: 18px;
+}
+
+.datepic {
+    width: 200px; 
+    padding: 10px; 
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px; 
+    outline: none;
+}
+
+.post button {
+    padding: 4px 8px;
+}
+
+@media only screen and (max-width: 1100px) {
+    .container {
+        padding: 2em 3em;
+    }
+    .date {
+        padding: 2em 3em;
+    }
+}
