@@ -19,6 +19,7 @@ function Captions({title,desc}) {
     const [selectedImages, setSelectedImages] = useState([]);
     const [savePost,setSavePost] = useState(false);
     const captionRef = useRef(null);
+    const hashRef = useRef(null);
 
     const [values,Setvalues] = useState({});
 
@@ -196,9 +197,9 @@ function Captions({title,desc}) {
         capElement.innerHTML = "";
         let index = 0;
         function displayNextCharacter() {
-            console.log("Index:", index);
+            // console.log("Index:", index);
             if (index < res.length) {
-                console.log("Adding character:", res[index]);
+                // console.log("Adding character:", res[index]);
                 capElement.innerHTML += res[index];
                 index++;
                 setTimeout(displayNextCharacter, 1);
@@ -210,17 +211,19 @@ function Captions({title,desc}) {
         displayNextCharacter();
     }
     
-
+    
     function displaySentence_(res) {
-        document.addEventListener("DOMContentLoaded", function() {
-            document.querySelector(`.${Styles.hash}`).innerHTML = ""
-        });
+        // document.querySelector(`.${Styles.hash}`).innerHTML = ""
+        const hashElement = hashRef.current;
+        if (!hashElement) {
+            console.error("Hash element not found");
+            return;
+        }
+        hashElement.innerHTML = "";
         let index = 0;
         function displayNextCharacter() {
             if (index < res.length) {
-                document.addEventListener("DOMContentLoaded", function() {
-                    document.querySelector(`.${Styles.hash}`).innerHTML += res[index];
-                });
+                hashElement.innerHTML += res[index];
                 index++;
                 setTimeout(displayNextCharacter, 1);
             } else {
@@ -297,7 +300,8 @@ function Captions({title,desc}) {
                             loaderhash_ ? <Audio height="80" width="80" radius="9" color="black" ariaLabel="three-dots-loading" wrapperStyle wrapperClass visible={loaderhash_}/>
                             : null
                         }
-                        <div className={Styles.hash}></div>
+                        {/* <div className={Styles.hash}></div> */}
+                        <div ref={hashRef} className={Styles.hash}></div>
                     </div>
                 )
             }
