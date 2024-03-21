@@ -186,27 +186,39 @@ function Captions({title,desc}) {
     }
 
     function displaySentence(res) {
-        document.querySelector(`.${Styles.cap}`).innerHTML = ""
+        const capElement = document.querySelector(`.${Styles.cap}`);
+        if (!capElement) {
+            console.error("Caption element not found");
+            return;
+        }
+        capElement.innerHTML = "";
         let index = 0;
         function displayNextCharacter() {
+            console.log("Index:", index);
             if (index < res.length) {
-                document.querySelector(`.${Styles.cap}`).innerHTML += res[index];
+                console.log("Adding character:", res[index]);
+                capElement.innerHTML += res[index];
                 index++;
                 setTimeout(displayNextCharacter, 1);
             } else {
-                res = '';
-                sethash(true)
+                console.log("Display complete");
+                sethash(true);
             }
         }
         displayNextCharacter();
     }
+    
 
     function displaySentence_(res) {
-        document.querySelector(`.${Styles.hash}`).innerHTML = ""
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelector(`.${Styles.hash}`).innerHTML = ""
+        });
         let index = 0;
         function displayNextCharacter() {
             if (index < res.length) {
-                document.querySelector(`.${Styles.hash}`).innerHTML += res[index];
+                document.addEventListener("DOMContentLoaded", function() {
+                    document.querySelector(`.${Styles.hash}`).innerHTML += res[index];
+                });
                 index++;
                 setTimeout(displayNextCharacter, 1);
             } else {
